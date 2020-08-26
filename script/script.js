@@ -17,20 +17,20 @@ DomElement.prototype.createElem = function () {
     newElem = document.createElement('p');
     newElem.id = this.selector.slice(1);
   }
-  newElem.style.height = this.height;
-  newElem.style.width = this.width;
-  newElem.style.background = this.bg;
-  newElem.style.fontSize = this.fontSize;
+  newElem.style.cssText = `height: ${this.height};
+  width: ${this.width};
+  background: ${this.bg};
+  fontSize: ${this.fontSize};`;
   return newElem;
 };
 
 function draw (x, y) {
-  this.style.left = 10 * x + 'px';
-  this.style.top = 10 * y + 'px';
+  this.style.cssText += `left: ${10 * x}px;
+  top: ${10 * y}px;`;
 }
 
 let square = new DomElement('#block', '100px', '100px', 'lime').createElem();
-square.style.position = 'absolute';
+square.style.cssText += `position: absolute; left: 0; top: 0;`;
 body.append(square);
 let x = 0, y = 0;
 window.onkeydown = (event) => {
