@@ -19,10 +19,11 @@ DomElement.prototype.createElem = function () {
     newElem.id = this.selector.slice(1);
     newElem.textContent = prompt('Введите текст');
   }
-  newElem.style.height = this.height;
-  newElem.style.width = this.width;
-  newElem.style.background = this.bg;
-  newElem.style.fontSize = this.fontSize;
+  newElem.style.cssText = `height: ${this.height};
+  width: ${this.width};
+  background: ${this.bg};
+  fontSize: ${this.fontSize};`;
+
   return newElem;
 };
 let elem1 = new DomElement('.block', '30px', '100%', 'grey', '20px');
